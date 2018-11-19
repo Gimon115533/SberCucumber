@@ -13,12 +13,12 @@ import ru.sbrf.autotests.steps.BaseSteps;
 public class MainPage extends BasePageObject{
 
 
-    @FindBy(xpath = "//*[@class='bd-designMode-null  webkit ya-page_js_yes']')]")
+    @FindBy(xpath = "//*[@class=' webkit ya-page_js_yes']")
     WebElement menuItems;
-//
-//    @FindBy(xpath = "//div[contains(@class,'grid rgs-main-menu')]")
-//    WebElement menuInsurance;
-//
+
+    @FindBy(xpath = "//*[@class=' webkit ya-page_js_yes']")
+    WebElement menuInsurance;
+
     public MainPage(){
         PageFactory.initElements(BaseSteps.getDriver(), this);
     }
@@ -27,8 +27,8 @@ public class MainPage extends BasePageObject{
         menuItems.findElement(By.xpath(".//li[contains(@class,'lg-menu')]//*[contains(text(),'"+itemName+"')]")).click();
     }
 
-//    public void selectInsuranceItem(String itemName){
-//        menuInsurance.findElement(By.xpath(".//li[contains(@class,'line3-link')]//a[contains(text(),'"+itemName+"')]")).click();
-//    }
+    public void selectInsuranceItem(String itemName){
+        menuInsurance.findElement(By.xpath(".//*[contains(@class,'lg-menu')]//*[contains(text(),'"+itemName+"')]")).click();
+    }
 }
 

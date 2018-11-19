@@ -15,9 +15,9 @@ public class MainPageSteps {
         new MainPage().selectMenuItem(menuItem);
     }
 
-//    @Step("выбран вид страхования {0}")
-//    public void selectMenuInsurance(String menuItem){
-//        new MainPage().selectInsuranceItem(menuItem);
-//    }
+    @Step("выбран вид страхования {0}")
+    public void selectMenuInsurance(String menuItem){
+        new MainPage().selectInsuranceItem(menuItem);
+    }
 
 }

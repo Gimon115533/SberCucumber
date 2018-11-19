@@ -1,4 +1,5 @@
 package ru.sbrf.autotests.steps;
+
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
@@ -9,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.sbrf.autotests.util.TestProperties;
 import ru.yandex.qatools.allure.annotations.Attachment;
 
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -20,13 +22,18 @@ public class BaseSteps {
     protected static String baseUrl;
     public static Properties properties = TestProperties.getInstance().getProperties();
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         return driver;
+    }
+
+    public void swetchPage() {
+        ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tab.get(1));
     }
 
     @Before
     public static void setUp() throws Exception {
-        switch (properties.getProperty("browser")){
+        switch (properties.getProperty("browser")) {
             case "firefox":
                 System.setProperty("webdriver.gecko.driver", properties.getProperty("webdriver.gecko.driver"));
                 driver = new FirefoxDriver();
